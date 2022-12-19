@@ -1,6 +1,6 @@
 const express = require("express");
 const connection = require("../database");
-const { usersRoute } = require("./routes");
+const { usersRoute, commentsRoute } = require("./routes");
 
 connection
   .promise()
@@ -11,5 +11,6 @@ const app = express();
 app.use(express.json());
 
 app.use("/api/users", usersRoute);
+app.use("/api/comments", commentsRoute);
 
 module.exports = app;
